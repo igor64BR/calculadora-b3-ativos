@@ -21,7 +21,7 @@ def extrair_codigos_csv(arquivo_csv):
         print(f"Erro ao ler o arquivo CSV: {e}")
         return []
 
-def extrair_indicadores_investidor10(codigo):
+def extrair_indicadores_status_invest(codigo):
     """Extrai indicadores do site Investidor10"""
     url = f"https://statusinvest.com.br/acao/indicatorhistoricallist?codes={codigo}&time=7"
     
@@ -134,7 +134,7 @@ def processar_acoes(arquivo_csv):
         print(f"Processando {codigo} ({i+1}/{len(codigos)})...")
         
         # Extrai indicadores do Investidor10
-        indicadores = extrair_indicadores_investidor10(codigo)
+        indicadores = extrair_indicadores_status_invest(codigo)
         
         # Extrai volatilidade do MaisRetorno
         volatilidade = extrair_volatilidade_maisretorno(codigo)
